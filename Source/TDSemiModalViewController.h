@@ -6,8 +6,6 @@
 //  Copyright 2010 Nathan Reed. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface TDSemiModalViewController : UIViewController
 
 @property (nonatomic, retain) UIView *coverView;

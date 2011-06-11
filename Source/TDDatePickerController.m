@@ -9,6 +9,7 @@
 
 
 @implementation TDDatePickerController
+
 @synthesize datePicker, delegate;
 
 -(void)viewDidLoad {
@@ -33,22 +34,20 @@
 #pragma mark Actions
 
 -(IBAction)saveDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerSetDate:)]) {
+	if ([self.delegate respondsToSelector:@selector(datePickerSetDate:)]) {
 		[self.delegate datePickerSetDate:self];
 	}
 }
 
 -(IBAction)clearDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerClearDate:)]) {
+	if ([self.delegate respondsToSelector:@selector(datePickerClearDate:)]) {
 		[self.delegate datePickerClearDate:self];
 	}
 }
 
 -(IBAction)cancelDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerCancel:)]) {
+	if ([self.delegate respondsToSelector:@selector(datePickerCancel:)]) {
 		[self.delegate datePickerCancel:self];
-	} else {
-		// just dismiss the view automatically?
 	}
 }
 
@@ -60,11 +59,10 @@
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
-
 	self.datePicker = nil;
 	self.delegate = nil;
-
+    
+    [super viewDidUnload];
 }
 
 - (void)dealloc {

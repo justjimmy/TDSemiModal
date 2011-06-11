@@ -9,28 +9,24 @@
 #import "TDSemiModalViewController.h"
 
 @implementation TDSemiModalViewController
+
 @synthesize coverView;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.coverView.backgroundColor = UIColor.blackColor;
+	self.coverView.backgroundColor = [UIColor blackColor];
 
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.coverView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
 }
 
 #pragma mark -
 #pragma mark Memory Management
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)viewDidUnload {
-    [super viewDidUnload];
 	self.coverView = nil;
+    [super viewDidUnload];
 }
 
 - (void)dealloc {
