@@ -65,12 +65,14 @@
     [super viewDidUnload];
 }
 
+#if !__has_feature(objc_arc)
 - (void)dealloc {
 	self.datePicker = nil;
 	self.delegate = nil;
 
     [super dealloc];
 }
+#endif
 
 
 @end
