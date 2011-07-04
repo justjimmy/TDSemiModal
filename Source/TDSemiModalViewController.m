@@ -26,14 +26,7 @@
 
 - (void)viewDidUnload {
 	self.coverView = nil;
-    [super viewDidUnload];
+	[super viewDidUnload];
 }
-
-#if !__has_feature(objc_arc)
-- (void)dealloc {
-	self.coverView = nil;
-    [super dealloc];
-}
-#endif
 
 @end
