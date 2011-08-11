@@ -9,6 +9,9 @@
 #import "TDSemiModalViewController.h"
 
 @interface UIViewController (TDSemiModalExtension)
+-(void)presentSemiModalViewController:(TDSemiModalViewController*)vc withDuration:(CGFloat) duration;
+-(void)dismissSemiModalViewController:(TDSemiModalViewController*)vc withDuration:(CGFloat) duration;
+
 
 - (void)presentSemiModalViewController:(TDSemiModalViewController*)vc;
 - (void)dismissSemiModalViewController:(TDSemiModalViewController*)vc; 

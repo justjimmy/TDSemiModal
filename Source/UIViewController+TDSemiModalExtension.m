@@ -12,6 +12,11 @@
 
 // Use this to show the modal view (pops-up from the bottom)
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc {
+    [self presentSemiModalViewController:vc withDuration:0.6f];
+}
+
+// Use this to show the modal view with custom duration (pops-up from the bottom)
+- (void) presentSemiModalViewController:(TDSemiModalViewController*)vc withDuration:(CGFloat)duration {
 	UIView *modalView = vc.view;
 	UIView *coverView = vc.coverView;
 
@@ -27,8 +32,8 @@
 		[modalView setBounds:CGRectMake(0, 0, 480, 300)];
 	} else {
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
-		[modalView setBounds:CGRectMake(0, 0, 320, 460)];
-		[coverView setFrame:CGRectMake(0, 0, 320, 460)];
+		[modalView setBounds:CGRectMake(0, 0, 320, 480)];
+		[coverView setFrame:CGRectMake(0, 0, 320, 480)];
 	}
 	
 	// we start off-screen
@@ -39,15 +44,18 @@
 	[self.view addSubview:modalView];
 	
 	// Show it with a transition effect
-    [UIView animateWithDuration:0.6 animations:^(void) {
+    [UIView animateWithDuration:duration animations:^(void) {
         modalView.center = center;
         coverView.alpha = 0.5;
     }];
 }
+// Use this to slide the semi-modal view back down with custom duration
+-(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc {
+    [self dismissSemiModalViewController:vc withDuration:0.7f];
+}
 
 // Use this to slide the semi-modal view back down.
--(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc {
-	double animationDelay = 0.7;
+-(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc withDuration:(CGFloat)duration {
 	UIView *modalView = vc.view;
 	UIView *coverView = vc.coverView;
 
@@ -57,7 +65,7 @@
 
 	CGPoint offScreenCenter = UIInterfaceOrientationIsLandscape(orientation) ? CGPointMake(screen.height / 2.0, screen.width * 1.5) : CGPointMake(screen.width / 2.0, screen.height * 1.5);
     
-    [UIView animateWithDuration:animationDelay animations:^(void) {
+    [UIView animateWithDuration:duration animations:^(void) {
         modalView.center = offScreenCenter;
         coverView.alpha = 0.0f;
     } completion:^(BOOL finished) {
