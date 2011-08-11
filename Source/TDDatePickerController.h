@@ -10,6 +10,8 @@
 @class TDDatePickerController;
 
 @protocol TDDatePickerControllerDelegate <NSObject>
+
+@optional
 - (void)datePickerSetDate:(TDDatePickerController *)viewController;
 - (void)datePickerClearDate:(TDDatePickerController *)viewController;
 - (void)datePickerCancel:(TDDatePickerController *)viewController;
