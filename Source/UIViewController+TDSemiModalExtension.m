@@ -32,8 +32,8 @@
 		[modalView setBounds:CGRectMake(0, 0, 480, 300)];
 	} else {
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
-		[modalView setBounds:CGRectMake(0, 0, 320, 460)];
-		[coverView setFrame:CGRectMake(0, 0, 320, 460)];
+		[modalView setBounds:CGRectMake(0, 0, 320, 480)];
+		[coverView setFrame:CGRectMake(0, 0, 320, 480)];
 	}
 	
 	// we start off-screen
