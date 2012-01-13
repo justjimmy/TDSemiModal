@@ -32,7 +32,7 @@
 	}
 	else {
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
-		[coverView setFrame:CGRectMake(0, 0, 320, 460)];
+		[coverView setFrame:self.view.bounds];
 	}
 	
 	[modalView setBounds:self.view.bounds];
