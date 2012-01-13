@@ -20,7 +20,7 @@
 	UIView *modalView = vc.view;
 	UIView *coverView = vc.coverView;
 
-	CGPoint center = self.view.center;
+	CGPoint middleCenter = self.view.center;
 	CGSize offSize = [UIScreen mainScreen].bounds.size;
 	CGPoint offScreenCenter = CGPointZero;
     
@@ -28,15 +28,16 @@
 
 	if (UIInterfaceOrientationIsLandscape(orientation)) {
 		offScreenCenter = CGPointMake(offSize.height / 2.0, offSize.width * 1.2);
-		center = CGPointMake(center.y, center.x);
-		[modalView setBounds:CGRectMake(0, 0, 480, 300)];
-	} else {
+		middleCenter = CGPointMake(middleCenter.y, middleCenter.x);
+	}
+	else {
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
-		[modalView setBounds:CGRectMake(0, 0, 320, 480)];
-		[coverView setFrame:CGRectMake(0, 0, 320, 480)];
+		[coverView setFrame:CGRectMake(0, 0, 320, 460)];
 	}
 	
-	// we start off-screen
+	[modalView setBounds:self.view.bounds];
+	
+    // we start off-screen
 	modalView.center = offScreenCenter;
 	coverView.alpha = 0.0f;
 	
@@ -45,7 +46,7 @@
 	
 	// Show it with a transition effect
     [UIView animateWithDuration:duration animations:^(void) {
-        modalView.center = center;
+        modalView.center = middleCenter;
         coverView.alpha = 0.5;
     }];
 }
