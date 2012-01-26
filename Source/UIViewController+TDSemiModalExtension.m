@@ -19,13 +19,15 @@
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc withDuration:(CGFloat)duration {
 	UIView *modalView = vc.view;
 	UIView *coverView = vc.coverView;
+    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
 
-	CGPoint middleCenter = self.view.center;
-	CGSize offSize = [UIScreen mainScreen].bounds.size;
+	CGPoint middleCenter = mainWindow.center;
+    middleCenter.y = middleCenter.y + statusBarFrame.size.height;
+	CGSize offSize = [UIScreen mainScreen].bounds.size;    
 	CGPoint offScreenCenter = CGPointZero;
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-
 	if (UIInterfaceOrientationIsLandscape(orientation)) {
 		offScreenCenter = CGPointMake(offSize.height / 2.0, offSize.width * 1.2);
 		middleCenter = CGPointMake(middleCenter.y, middleCenter.x);
@@ -34,15 +36,15 @@
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
 	}
 	
-	[modalView setBounds:self.view.bounds];
-    [coverView setFrame:self.view.bounds];
+	[modalView setBounds:mainWindow.bounds];
+    [coverView setFrame:mainWindow.bounds];
 	
     // we start off-screen
 	modalView.center = offScreenCenter;
 	coverView.alpha = 0.0f;
 	
-	[self.view addSubview:coverView];
-	[self.view addSubview:modalView];
+	[mainWindow addSubview:coverView];
+	[mainWindow addSubview:modalView];
 	
 	// Show it with a transition effect
     [UIView animateWithDuration:duration animations:^(void) {
