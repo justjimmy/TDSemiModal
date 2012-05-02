@@ -12,7 +12,7 @@
 
 // Use this to show the modal view (pops-up from the bottom)
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc {
-    [self presentSemiModalViewController:vc withDuration:0.6f];
+    [self presentSemiModalViewController:vc withDuration:0.3f];
 }
 
 // Use this to show the modal view with custom duration (pops-up from the bottom)
@@ -54,7 +54,7 @@
 }
 // Use this to slide the semi-modal view back down with custom duration
 -(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc {
-    [self dismissSemiModalViewController:vc withDuration:0.7f];
+    [self dismissSemiModalViewController:vc withDuration:0.3f];
 }
 
 // Use this to slide the semi-modal view back down.
