@@ -23,7 +23,7 @@
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
 
 	CGPoint middleCenter = mainWindow.center;
-    middleCenter.y = middleCenter.y + statusBarFrame.size.height;
+    middleCenter.y = middleCenter.y + statusBarFrame.size.height - 20;
 	CGSize offSize = [UIScreen mainScreen].bounds.size;    
 	CGPoint offScreenCenter = CGPointZero;
     
